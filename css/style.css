@@ -131,7 +131,7 @@ p {
       box-shadow: none; }
   .works__work--2 {
     flex: 3;
-    background: url("../images/JSGames.png");
+    background-image: url("../images/JSGames.png");
     box-shadow: inset 0 0 0 100rem rgba(249, 190, 159, 0.7); }
     .works__work--2:hover {
       box-shadow: none; }
