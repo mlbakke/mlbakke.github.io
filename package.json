@@ -15,7 +15,7 @@
 		"url": "git+https://github.com/mlbakke/mlbakke.github.io.git"
 	},
 	"author": "Martin L. Bakke",
-	"license": "ISC",
+	"license": "MIT",
 	"bugs": {
 		"url": "https://github.com/mlbakke/mlbakke.github.io/issues"
 	},
