@@ -1,0 +1,46 @@
+.navigation {
+	&__list {
+		display: flex;
+		justify-content: center;
+		list-style: none;
+	}
+	&__item {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		font-size: 1.9rem;
+		padding: 2rem 5rem;
+		border: 1px solid rgba($color-white, .8);
+		background-color: rgba($color-black, .1);
+
+		//round borders on left side of first item and right side of last item
+		&:first-child {
+			border-radius: 5px 0 0 5px;
+		}
+		&:last-child {
+			border-radius: 0 5px 5px 0;
+		}
+		// avoid double borders between items
+		&:not(:last-child) {
+			border-right: none;
+		}
+	}
+	&__link {
+		&:link,
+		&:visited {
+			display: inline-block;
+			color: $color-white;
+			text-decoration: none;
+			text-transform: uppercase;
+		}
+		&:hover,
+		&:focus,
+		&:active {
+			border-bottom: 1px solid rgba($color-white, .8);
+		}
+		&:active {
+			color: $color-details;
+		}
+	}
+}
