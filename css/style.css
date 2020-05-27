@@ -1,0 +1,96 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  /* forces inheritance for box-sizing from body */
+  box-sizing: inherit; }
+
+html {
+  /* 1rem = 10px on most default browser settings */
+  font-size: 62.5%; }
+
+body {
+  /* box-sizing inherited to the whole site */
+  box-sizing: border-box; }
+
+html {
+  font-family: 'Lato', sans-serif;
+  color: white; }
+
+.heading-primary {
+  font-size: 8rem;
+  font-weight: 300;
+  line-height: 12rem;
+  letter-spacing: .5rem; }
+
+.header__intro {
+  font-size: 2rem;
+  line-height: 3rem; }
+
+.navigation__list {
+  display: flex;
+  justify-content: center;
+  list-style: none; }
+
+.navigation__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.9rem;
+  padding: 2rem 5rem;
+  border: 1px solid rgba(249, 247, 243, 0.8);
+  background-color: rgba(9, 10, 12, 0.1); }
+  .navigation__item:first-child {
+    border-radius: 5px 0 0 5px; }
+  .navigation__item:last-child {
+    border-radius: 0 5px 5px 0; }
+  .navigation__item:not(:last-child) {
+    border-right: none; }
+
+.navigation__link:link, .navigation__link:visited {
+  display: inline-block;
+  color: #f9f7f3;
+  text-decoration: none;
+  text-transform: uppercase; }
+
+.navigation__link:hover, .navigation__link:focus, .navigation__link:active {
+  border-bottom: 1px solid rgba(249, 247, 243, 0.8); }
+
+.navigation__link:active {
+  color: #d5a021; }
+
+.header {
+  background-image: -moz-linear-gradient(to right bottom, rgba(9, 10, 12, 0.6), rgba(9, 10, 12, 0.2)), url(../images/laptopL.jpg);
+  background-image: -webkit-linear-gradient(to right bottom, rgba(9, 10, 12, 0.6), rgba(9, 10, 12, 0.2)), url(../images/laptopL.jpg);
+  background-image: -ms-linear-gradient(to right bottom, rgba(9, 10, 12, 0.6), rgba(9, 10, 12, 0.2)), url(../images/laptopL.jpg);
+  background-image: linear-gradient(to right bottom, rgba(9, 10, 12, 0.6), rgba(9, 10, 12, 0.2)), url(../images/laptopL.jpg);
+  max-width: 100%;
+  height: 100vh;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  .header__logo {
+    font-family: 'Fredericka the Great', cursive;
+    line-height: 10rem;
+    font-size: 2.5rem;
+    display: inline-block;
+    width: 10rem;
+    height: 10rem;
+    border: 1px solid #f9f7f3;
+    border-radius: 100%;
+    margin-top: -15rem; }
+  .header__content {
+    position: relative;
+    margin: 10rem 0;
+    display: inline-block;
+    width: 50%;
+    padding: 3rem 2rem;
+    border-top: 1px solid #f9f7f3;
+    border-bottom: 1px solid #f9f7f3;
+    max-height: 40rem;
+    max-width: 100%; }
+  .header__intro:last-child {
+    margin-bottom: 3rem; }
