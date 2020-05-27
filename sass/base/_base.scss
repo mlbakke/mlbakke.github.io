@@ -1,0 +1,19 @@
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+	/* forces inheritance for box-sizing from body */
+	box-sizing: inherit;
+}
+
+html {
+	/* 1rem = 10px on most default browser settings */
+	font-size: 62.5%;
+}
+
+body {
+	/* box-sizing inherited to the whole site */
+	box-sizing: border-box;
+	padding: 3rem;
+}
