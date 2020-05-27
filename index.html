@@ -22,24 +22,29 @@
         <nav class="navigation">
             <ul class="navigation__list">
                 <li class="navigation__item"><a href="#intro" class="navigation__link">Intro</a></li>
-                <li class="navigation__item"><a href="#works" class="navigation__link">Work</a></li>
+                <li class="navigation__item"><a href="#works" class="navigation__link">Works</a></li>
                 <li class="navigation__item"><a href="#about" class="navigation__link">About</a></li>
                 <li class="navigation__item"><a href="#footer" class="navigation__link">Contact</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <div class="works" id="works">
-            <h2 class="heading-secondary">My Works</h2>
-            <div class="works__work works__work--1">Work 1</div>
-            <div class="works__work works__work--2">Work 2</div>
-            <div class="works__work works__work--3">Work 3</div>
-            <div class="works__work works__work--4">Work 4</div>
-        </div>
-        <div class="about" id="about">
+        <section class="works" id="works">
+            <div class="works__pair">
+                <div class="works__work works__work--1">
+                    <h3 class='heading-tertiary works__title'>Browser Paint</h3>
+                    <p class="works__description">In-browser paint app</p>
+                </div>
+                <div class="works__work works__work--2">
+                    <h3 class='heading-tertiary works__title'>JS Games</h3>
+                    <p class="works__description">Collection of vanilla JavaScript games</p>
+                </div>
+            </div>
+        </section>
+        <section class="about" id="about">
             <h2 class="heading-secondary">About Me</h2>
-            <p class="about">Some text about me</p>
-        </div>
+            <p class="about__text">Some text about me</p>
+        </section>
     </main>
     <footer id="footer">
         <div class="contact">
