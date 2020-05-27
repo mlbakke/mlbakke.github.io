@@ -1,0 +1,48 @@
+.header {
+	background-image: -moz-linear-gradient(to right bottom, rgba($color-black, 0.6), rgba($color-black, 0.2)),
+		url(../images/laptopL.jpg);
+	background-image: -webkit-linear-gradient(to right bottom, rgba($color-black, 0.6), rgba($color-black, 0.2)),
+		url(../images/laptopL.jpg);
+	background-image: -ms-linear-gradient(to right bottom, rgba($color-black, 0.6), rgba($color-black, 0.2)),
+		url(../images/laptopL.jpg);
+	background-image: linear-gradient(to right bottom, rgba($color-black, 0.6), rgba($color-black, 0.2)),
+		url(../images/laptopL.jpg);
+	max-width: 100%;
+	height: 100vh;
+	text-align: center;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	&__logo {
+		font-family: 'Fredericka the Great', cursive;
+		line-height: 10rem;
+		font-size: 2.5rem;
+		display: inline-block;
+		width: 10rem;
+		height: 10rem;
+		border: 1px solid $color-white;
+		border-radius: 100%;
+		margin-top: -15rem;
+	}
+
+	&__content {
+		position: relative;
+		margin: 10rem 0;
+		display: inline-block;
+		width: 50%;
+		padding: 3rem 2rem;
+		border-top: 1px solid $color-white;
+		border-bottom: 1px solid $color-white;
+		max-height: 40rem;
+		max-width: 100%;
+	}
+
+	&__intro {
+		&:last-child {
+			margin-bottom: 3rem;
+		}
+	}
+}
