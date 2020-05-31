@@ -52,7 +52,21 @@
 
 .about {
 	background-color: $color-bg-dark;
+
+	&__heading,
 	&__text {
+		margin-left: 5%;
+	}
+
+	&__heading {
+		margin-bottom: 4rem;
+		padding: 5rem 1rem 2rem;
+		display: inline-block;
+		border-bottom: 1px solid $color-white;
+	}
+
+	&__text {
+		padding-bottom: 4rem;
 	}
 }
 
