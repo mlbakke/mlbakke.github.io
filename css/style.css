@@ -74,6 +74,9 @@ p {
 .navigation__link:active {
   color: #d5a021; }
 
+.footer {
+  background-color: #2a2f4a; }
+
 .header {
   background-image: -moz-linear-gradient(to right bottom, rgba(9, 10, 12, 0.6), rgba(9, 10, 12, 0.2)), url(../images/laptopL.jpg);
   background-image: -webkit-linear-gradient(to right bottom, rgba(9, 10, 12, 0.6), rgba(9, 10, 12, 0.2)), url(../images/laptopL.jpg);
@@ -146,3 +149,17 @@ p {
   margin-top: 2rem;
   margin-left: 9rem;
   font-size: 2rem; }
+
+.about {
+  background-color: #2c302e; }
+
+.contact__link, .contact__link:link, .contact__link:visited {
+  color: #f9f7f3;
+  text-decoration: none; }
+
+.contact,
+.email-form {
+  background-color: #2a2f4a; }
+
+.email-form input {
+  background-color: #8a95a5; }
