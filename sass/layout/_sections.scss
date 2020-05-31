@@ -51,6 +51,29 @@
 }
 
 .about {
+	background-color: $color-bg-dark;
 	&__text {
 	}
+}
+
+.contact {
+	&__option {
+	}
+	&__icon {
+	}
+
+	&__link,
+	&__link:link,
+	&__link:visited {
+		color: $color-white;
+		text-decoration: none;
+	}
+}
+.contact,
+.email-form {
+	background-color: $color-form-dark;
+}
+
+.email-form input {
+	background-color: $color-form;
 }
