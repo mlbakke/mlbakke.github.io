@@ -71,16 +71,22 @@
                 </div>
             </div>
             <form class="contact__email-form">
-                <label for="name">Name</label>
-                <input type="text" name="name" id="name">
+                <div class="contact__email-form--sender">
+                    <div class="contact__email-form--half">
+                        <label for="name">Name</label>
+                        <input type="text" name="name" id="name">
+                    </div>
 
-                <label for="email">Email</label>
-                <input type="email" name="email" id="email">
+                    <div class="contact__email-form--half">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email">
+                    </div>
+                </div>
 
                 <label for="message">Message</label>
                 <textarea name="message" id="message" rows="15"></textarea>
 
-                <input type="submit" value="Send">
+                <input type="submit" value="Send message" id="submit-msg">
             </form>
         </div>
     </main>
