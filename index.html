@@ -2,7 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="description" content="Frontend Portfolio">
+    <meta name="keywords" content="HTML, CSS, JavaScript, Frontend, web-development">
+    <meta name="author" content="Martin Liland Bakke">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>MLB's Portfolio Site</title>
     <!--Fonts-->
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
@@ -12,7 +16,7 @@
 </head>
 <body>
     <header class="header">
-        <div class="header__logo">MLB</div>
+        <div class="header__logo" id="intro">MLB</div>
         <div class="header__content">
             <h1 class="heading-primary">Portfolio</h1>
             <p class="header__intro">Hello! My name is Martin,</p>
@@ -21,7 +25,7 @@
 
         <nav class="navigation">
             <ul class="navigation__list">
-                <li class="navigation__item"><a href="#intro" class="navigation__link">Intro</a></li>
+                <li class="navigation__item"><a href="#top" class="navigation__link">Intro</a></li>
                 <li class="navigation__item"><a href="#works" class="navigation__link">Works</a></li>
                 <li class="navigation__item"><a href="#about" class="navigation__link">About</a></li>
                 <li class="navigation__item"><a href="#footer" class="navigation__link">Contact</a></li>
@@ -50,21 +54,36 @@
             <div class="contact__links">
                 <div class="contact__option">
                     <div class="contact__type contact__type--social">
-                        <div class="contact__type--icon"></div>
+                        <svg class="contact__type--icon">
+                            <use xlink:href="images/icons/sprite.svg#icon-share2"></use>
+                        </svg>
                         Social
                     </div>
-                    <a href="#" class="contact__info">Github</a>
+                    <a href="#" class="contact__info">
+                        <svg class="contact__type--icon">
+                            <use xlink:href="images/icons/sprite.svg#icon-github"></use>
+                        </svg>Github
+                    </a>
+                    <a href="#" class="contact__info">
+                        <svg class="contact__type--icon">
+                            <use xlink:href="images/icons/sprite.svg#icon-facebook-with-circle"></use>
+                        </svg>Facebook
+                    </a>
                 </div>
                 <div class="contact__option">
                     <div class="contact__type">
-                        <div class="contact__type--icon"></div>
+                        <svg class="contact__type--icon">
+                            <use xlink:href="images/icons/sprite.svg#icon-email"></use>
+                        </svg>
                         Email
                     </div>
                     <a href="#" class="contact__info">bakkemartin@gmail.com</a>
                 </div>
                 <div class="contact__option">
                     <div class="contact__type">
-                        <div class="contact__type--icon"></div>
+                        <svg class="contact__type--icon">
+                            <use xlink:href="images/icons/sprite.svg#icon-phone"></use>
+                        </svg>
                         Phone
                     </div>
                     <div class="contact__info">+47 450 56 609</div>
