@@ -1,8 +1,26 @@
 .footer {
 	&__wrapper {
 		background-color: $color-form-dark;
+		color: rgba($color-form-light, .5);
+		padding: 2.5rem 0 2.5rem 10%;
 
-		//for visualizing purposes - remove
-		height: 10rem;
+		display: flex;
+	}
+
+	&__text {
+		font-size: 1.25rem;
+
+		&:not(:last-of-type):after {
+			content: "|";
+			padding: 0 1rem;
+		}
+	}
+
+	&__link:link,
+	&__link:visited {
+		color: rgba($color-form-light, .5);
+		text-decoration: none;
+
+		border-bottom: 1px dotted rgba($color-form-light, .75);
 	}
 }

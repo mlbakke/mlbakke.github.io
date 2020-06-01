@@ -83,7 +83,20 @@ p {
 
 .footer__wrapper {
   background-color: #2a2f4a;
-  height: 10rem; }
+  color: rgba(205, 220, 241, 0.5);
+  padding: 2.5rem 0 2.5rem 10%;
+  display: flex; }
+
+.footer__text {
+  font-size: 1.25rem; }
+  .footer__text:not(:last-of-type):after {
+    content: "|";
+    padding: 0 1rem; }
+
+.footer__link:link, .footer__link:visited {
+  color: rgba(205, 220, 241, 0.5);
+  text-decoration: none;
+  border-bottom: 1px dotted rgba(205, 220, 241, 0.75); }
 
 .header {
   background-image: -moz-linear-gradient(to right bottom, rgba(9, 10, 12, 0.6), rgba(9, 10, 12, 0.2)), url(../images/laptopL.jpg);
