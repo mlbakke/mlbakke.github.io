@@ -75,17 +75,16 @@
 
 .contact {
 	display: flex;
-	min-height: 20rem;
 	padding-left: 10%;
 	border-bottom: 1px solid rgba($color-form-light, .2);
-
-	font-size: 1.6rem;
 	background-color: $color-form-dark;
+	font-size: 1.75rem;
 
 	&__links {
 		border-right: 1px solid rgba($color-form-light, .2);
 		display: flex;
 		flex-direction: column;
+		// vertical align
 		justify-content: center;
 	}
 
@@ -96,27 +95,53 @@
 			border-bottom: 1px solid rgba($color-form-light, .2);
 		}
 	}
+
 	&__type {
 		font-size: 2.25rem;
 		font-weight: 300;
 		color: $color-form-light;
+		text-transform: uppercase;
+		margin-bottom: 2.5rem;
+		display: flex;
+		align-items: center;
+	}
 
-		&__icon {
+	&__icon {
+		fill: $color-form-light;
+
+		&--type {
+			width: 3rem;
+			height: 3rem;
+			margin-right: 1rem;
 		}
-		&--social {
+
+		&--info {
+			width: 2.5rem;
+			height: 2.5rem;
+			margin-right: .5rem;
 		}
+	}
+
+	&__info {
+		display: flex;
+	}
+
+	&__link {
+		display: flex;
+		align-items: center;
+		margin-right: 7%;
 	}
 
 	&__info,
-	&__info:link,
-	&__info:visited {
+	&__link {
 		color: $color-form-light;
 		text-decoration: none;
-	}
 
-	&__links,
-	&__email-form {
-		font-size: 1.75rem;
+		// just for links
+		&:link,
+		&:visited {
+			border-bottom: 1px dotted $color-form-light;
+		}
 	}
 
 	&__email-form {
