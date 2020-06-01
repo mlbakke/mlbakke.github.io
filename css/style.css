@@ -164,17 +164,18 @@ p {
     margin-left: 10%; }
   .about__heading {
     margin-bottom: 4rem;
-    padding: 5rem 1rem 2rem;
+    padding: 7rem 1rem 2rem;
     display: inline-block;
     border-bottom: 1px solid #f9f7f3; }
   .about__text {
-    padding-bottom: 4rem; }
+    padding-bottom: 7rem;
+    font-size: 2rem;
+    letter-spacing: 0.05rem; }
 
 .contact {
   display: flex;
   min-height: 20rem;
   padding-left: 10%;
-  padding-right: 10%;
   border-bottom: 1px solid rgba(205, 220, 241, 0.2);
   font-size: 1.6rem;
   background-color: #2a2f4a; }
@@ -188,16 +189,54 @@ p {
     padding: 5rem; }
     .contact__option:not(:last-child) {
       border-bottom: 1px solid rgba(205, 220, 241, 0.2); }
-  .contact__info:link, .contact__info:visited {
-    color: #f9f7f3;
+  .contact__type {
+    font-size: 2.25rem;
+    font-weight: 300;
+    color: #cddcf1; }
+  .contact__info, .contact__info:link, .contact__info:visited {
+    color: #cddcf1;
     text-decoration: none; }
+  .contact__links, .contact__email-form {
+    font-size: 1.75rem; }
   .contact__email-form {
-    padding: 5rem; }
-  .contact__email-form input,
-  .contact__email-form textarea {
-    background-color: #495383; }
+    padding: 5rem 0 5rem 5rem;
+    width: 37.5%;
+    display: flex;
+    flex-direction: column; }
+    .contact__email-form--sender {
+      display: flex; }
+    .contact__email-form--half {
+      display: flex;
+      flex-direction: column;
+      width: 50%; }
+      .contact__email-form--half:last-of-type {
+        margin-left: 2rem; }
+    .contact__email-form label {
+      font-size: 2.25rem;
+      font-weight: 300;
+      color: #cddcf1; }
+    .contact__email-form input,
+    .contact__email-form textarea {
+      background-color: #495383;
+      color: #cddcf1;
+      font-size: 1.75rem;
+      margin-bottom: 2rem;
+      margin-top: 1rem;
+      padding: 1rem;
+      border: none; }
+    .contact__email-form input:-webkit-autofill {
+      -webkit-box-shadow: 0 0 0 100px #495383 inset;
+      -webkit-text-fill-color: #cddcf1; }
 
 #message {
   height: 20rem;
-  width: 100%;
-  color: #f9f7f3; }
+  width: 100%; }
+
+#submit-msg {
+  margin-right: auto;
+  width: 20rem;
+  letter-spacing: 0.05rem;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  font-weight: 300;
+  cursor: pointer; }
