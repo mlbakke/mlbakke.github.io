@@ -47,25 +47,43 @@
         </section>
     </main>
     <footer id="footer">
-        <div class="contact">
-            <div class="contact__option">
-                <div class="contact__icon"></div>
-                <a href="#" class="contact__link">Github</a>
+        <div class="footer__wrapper">
+            <div class="contact">
+                <div class="contact__option">
+                    <div class="contact__type contact__type--social">
+                        <div class="contact__type--icon"></div>
+                        Social
+                    </div>
+                    <a href="#" class="contact__info">Github</a>
+                </div>
+                <div class="contact__option">
+                    <div class="contact__type">
+                        <div class="contact__type--icon"></div>
+                        Email
+                    </div>
+                    <a href="#" class="contact__info">bakkemartin@gmail.com</a>
+                </div>
+                <div class="contact__option">
+                    <div class="contact__type">
+                        <div class="contact__type--icon"></div>
+                        Phone
+                    </div>
+                    <div class="contact__info">+47 450 56 609</div>
+                </div>
             </div>
-            <div class="contact__option">
-                <div class="contact__icon"></div>
-                <a href="#" class="contact__link">bakkemartin@gmail.com</a>
-            </div>
+            <form class="email-form">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name">
+
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email">
+
+                <label for="message">Message</label>
+                <textarea name="message" id="message" rows="15"></textarea>
+
+                <input type="submit" value="Send">
+            </form>
         </div>
-        <form class="email-form">
-            <label for="name">Name</label>
-            <input type="text" name="name" id="name">
-            <label for="email">Email</label>
-            <input type="email" name="email" id="email">
-            <label for="message">Message</label>
-            <input type="text" name="message" id="message">
-            <input type="submit" value="Send">
-        </form>
     </footer>
 </body>
 </html>
