@@ -53,35 +53,41 @@
         <div class="contact">
             <div class="contact__links">
                 <div class="contact__option">
-                    <div class="contact__type contact__type--social">
-                        <svg class="contact__type--icon">
+                    <div class="contact__type">
+                        <svg class="contact__icon contact__icon--type">
                             <use xlink:href="images/icons/sprite.svg#icon-share2"></use>
                         </svg>
                         Social
                     </div>
-                    <a href="#" class="contact__info">
-                        <svg class="contact__type--icon">
-                            <use xlink:href="images/icons/sprite.svg#icon-github"></use>
-                        </svg>Github
-                    </a>
-                    <a href="#" class="contact__info">
-                        <svg class="contact__type--icon">
-                            <use xlink:href="images/icons/sprite.svg#icon-facebook-with-circle"></use>
-                        </svg>Facebook
-                    </a>
+                    <div class="contact__info">
+                        <a href="https://github.com/mlbakke" class="contact__link">
+                            <svg class="contact__icon contact__icon--info">
+                                <use xlink:href="images/icons/sprite.svg#icon-github"></use>
+                            </svg>
+                            <span>GitHub</span>
+                        </a>
+                        <a href="https://www.facebook.com/bakkemartin/" class="contact__link">
+                            <svg class="contact__icon contact__icon--info">
+                                <use xlink:href="images/icons/sprite.svg#icon-facebook-with-circle"></use>
+                            </svg>
+                            <span>Facebook</span>
+                        </a>
+                    </div>
                 </div>
                 <div class="contact__option">
                     <div class="contact__type">
-                        <svg class="contact__type--icon">
+                        <svg class="contact__icon contact__icon--type">
                             <use xlink:href="images/icons/sprite.svg#icon-email"></use>
                         </svg>
                         Email
                     </div>
-                    <a href="#" class="contact__info">bakkemartin@gmail.com</a>
+                    <div class="contact__info">
+                        <a href="#" class="contact__link">bakkemartin@gmail.com</a>
+                    </div>
                 </div>
                 <div class="contact__option">
                     <div class="contact__type">
-                        <svg class="contact__type--icon">
+                        <svg class="contact__icon contact__icon--type">
                             <use xlink:href="images/icons/sprite.svg#icon-phone"></use>
                         </svg>
                         Phone
@@ -100,6 +106,11 @@
                         <label for="email">Email</label>
                         <input type="email" name="email" id="email">
                     </div>
+                </div>
+                
+                <div class="contact__email-form--subject">
+                    <label for="subject">Subject</label>
+                    <input type="text" name="subject" id="subject">
                 </div>
 
                 <label for="message">Message</label>
