@@ -53,21 +53,20 @@
 .about {
 	background-color: $color-bg-dark;
 
-	&__heading,
-	&__text {
-		margin-left: 10%;
+	&__content {
+		padding: 7rem 10%;
+		display: flex;
+		align-items: center;
 	}
 
 	&__heading {
 		margin-bottom: 4rem;
-		padding: 7rem 1rem 2rem;
+		padding: 0 1rem 2rem;
 		display: inline-block;
 		border-bottom: 1px solid $color-white;
 	}
 
 	&__text {
-		width: 50%;
-
 		&--p {
 			font-size: 2rem;
 			line-height: 2.5rem;
@@ -76,7 +75,6 @@
 
 			&:last-of-type {
 				padding-top: 1rem;
-				padding-bottom: 7rem;
 			}
 		}
 	}
