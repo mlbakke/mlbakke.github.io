@@ -1,0 +1,63 @@
+.email-form {
+	padding: 5rem 0 5rem 5rem;
+	width: 40%;
+	display: flex;
+	flex-direction: column;
+
+	&__half {
+		display: flex;
+		flex-direction: column;
+		width: 50%;
+
+		// Space between input fields
+		&:last-of-type {
+			margin-left: 2rem;
+		}
+	}
+
+	&__sender {
+		display: flex;
+	}
+
+	&__subject {
+		display: flex;
+		flex-direction: column;
+	}
+
+	& label {
+		font-size: 2.25rem;
+		font-weight: 300;
+		color: $color-form-light;
+	}
+
+	& input,
+	& textarea {
+		background-color: $color-form;
+		color: $color-form-light;
+		font-size: 1.75rem;
+		margin-bottom: 2rem;
+		margin-top: 1rem;
+		padding: 1rem;
+		border: none;
+	}
+
+	//remove chrome defaulting style on auto-complete
+	& input:-webkit-autofill {
+		-webkit-box-shadow: 0 0 0 100px $color-form inset;
+		-webkit-text-fill-color: $color-form-light;
+	}
+}
+
+#message {
+	height: 17.5rem;
+}
+
+#submit-msg {
+	margin-right: auto;
+	width: 20rem;
+	letter-spacing: 0.05rem;
+	font-size: 1.5rem;
+	text-transform: uppercase;
+	font-weight: 300;
+	cursor: pointer;
+}
