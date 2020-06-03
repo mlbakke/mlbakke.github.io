@@ -49,6 +49,51 @@ p {
   line-height: 3rem;
   font-weight: 300; }
 
+.email-form {
+  padding: 5rem 0 5rem 5rem;
+  width: 40%;
+  display: flex;
+  flex-direction: column; }
+  .email-form__half {
+    display: flex;
+    flex-direction: column;
+    width: 50%; }
+    .email-form__half:last-of-type {
+      margin-left: 2rem; }
+  .email-form__sender {
+    display: flex; }
+  .email-form__subject {
+    display: flex;
+    flex-direction: column; }
+  .email-form label {
+    font-size: 2.25rem;
+    font-weight: 300;
+    color: #cddcf1; }
+  .email-form input,
+  .email-form textarea {
+    background-color: #495383;
+    color: #cddcf1;
+    font-size: 1.75rem;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+    padding: 1rem;
+    border: none; }
+  .email-form input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 100px #495383 inset;
+    -webkit-text-fill-color: #cddcf1; }
+
+#body {
+  height: 17.5rem; }
+
+#submit-msg {
+  margin-right: auto;
+  width: 20rem;
+  letter-spacing: 0.05rem;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  font-weight: 300;
+  cursor: pointer; }
+
 .gallery {
   flex: 0 0 45%;
   margin-left: 5%;
@@ -258,48 +303,3 @@ p {
     text-decoration: none; }
     .contact__info:link, .contact__info:visited, .contact__link:link, .contact__link:visited {
       border-bottom: 1px dotted #cddcf1; }
-  .contact__email-form {
-    padding: 5rem 0 5rem 5rem;
-    width: 37.5%;
-    display: flex;
-    flex-direction: column; }
-    .contact__email-form--sender {
-      display: flex; }
-    .contact__email-form--half {
-      display: flex;
-      flex-direction: column;
-      width: 50%; }
-      .contact__email-form--half:last-of-type {
-        margin-left: 2rem; }
-    .contact__email-form--subject {
-      display: flex;
-      flex-direction: column; }
-    .contact__email-form label {
-      font-size: 2.25rem;
-      font-weight: 300;
-      color: #cddcf1; }
-    .contact__email-form input,
-    .contact__email-form textarea {
-      background-color: #495383;
-      color: #cddcf1;
-      font-size: 1.75rem;
-      margin-bottom: 2rem;
-      margin-top: 1rem;
-      padding: 1rem;
-      border: none; }
-    .contact__email-form input:-webkit-autofill {
-      -webkit-box-shadow: 0 0 0 100px #495383 inset;
-      -webkit-text-fill-color: #cddcf1; }
-
-#message {
-  height: 17.5rem;
-  width: 100%; }
-
-#submit-msg {
-  margin-right: auto;
-  width: 20rem;
-  letter-spacing: 0.05rem;
-  font-size: 1.5rem;
-  text-transform: uppercase;
-  font-weight: 300;
-  cursor: pointer; }
