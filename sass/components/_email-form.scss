@@ -1,8 +1,13 @@
 .email-form {
 	padding: 5rem 0 5rem 5rem;
-	width: 40%;
+	width: 45%;
 	display: flex;
 	flex-direction: column;
+
+	@include respond(tab-land) {
+		width: 80%;
+		margin: auto;
+	}
 
 	&__half {
 		display: flex;
@@ -17,6 +22,15 @@
 
 	&__sender {
 		display: flex;
+
+		@include respond(small-desk) {
+			//avoid sender fields getting wider than subject/body
+			width: calc(100% - 2rem);
+		}
+
+		@include respond(tab-land) {
+			width: 100%;
+		}
 	}
 
 	&__subject {

@@ -57,6 +57,14 @@
 		padding: 7rem 10%;
 		display: flex;
 		align-items: center;
+
+		@include respond(small-desk) {
+			padding: 7rem 5%;
+		}
+
+		@include respond(tab-land) {
+			flex-direction: column;
+		}
 	}
 
 	&__heading {
@@ -77,6 +85,10 @@
 				padding-top: 1rem;
 			}
 		}
+
+		@include respond(tab-land) {
+			margin-bottom: 5rem;
+		}
 	}
 }
 
@@ -87,19 +99,45 @@
 	background-color: $color-form-dark;
 	font-size: 1.75rem;
 
-	&__links {
+	@include respond(tab-land) {
+		flex-direction: column;
+		padding-left: 0;
+	}
+
+	&__options {
 		border-right: 1px solid rgba($color-form-light, .2);
 		display: flex;
 		flex-direction: column;
 		// vertical align
 		justify-content: center;
+
+		@include respond(tab-land) {
+			flex-direction: row;
+			border-right: none;
+		}
 	}
 
 	&__option {
 		min-width: 35vw;
 		padding: 5rem;
+
+		@include respond(tab-land) {
+			min-width: 29vw;
+		}
+
 		&:not(:last-child) {
 			border-bottom: 1px solid rgba($color-form-light, .2);
+
+			@include respond(tab-land) {
+				border-right: 1px solid rgba($color-form-light, .2);
+			}
+		}
+
+		&:last-child {
+			//add bottom border for all option fields on smaller screens
+			@include respond(tab-land) {
+				border-bottom: 1px solid rgba($color-form-light, .2);
+			}
 		}
 	}
 
@@ -131,6 +169,15 @@
 
 	&__info {
 		display: flex;
+
+		@include respond(tab-xs) {
+			flex-direction: column;
+			align-items: flex-start;
+
+			& a {
+				margin-bottom: 1rem;
+			}
+		}
 	}
 
 	&__link {
