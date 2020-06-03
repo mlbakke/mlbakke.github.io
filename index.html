@@ -56,10 +56,11 @@
                     <p class="about__text--p">
                         My name is Martin, and I make clean, responsive websites. 
                         I live with my girlfriend of 6 years in Bergen, Norway.
-                        When my sister (and shortly after, a colleague) 
-                        asked me if I could make a website for them because they 
-                        "figured it would be something you'd be good at", my interest was piqued.
-                        After a little bit of practice with HTML and CSS, I was hooked. 
+                        My introduction to web-development first came when my sister 
+                        (and shortly after, a colleague) asked me if I could make a website 
+                        for them because they "figured it would be something you'd be good at". 
+                        My interest was piqued, and after a little bit of practice with HTML and CSS, 
+                        I was hooked. 
                     </p>
                     
                     <p class="about__text--p">
@@ -136,7 +137,8 @@
                     <div class="contact__info">+47 450 56 609</div>
                 </div>
             </div>
-            <form class="email-form">
+            
+            <form action="http://formspree.io/bakkemartin11@gmail.com" method="POST" class="email-form">
                 <div class="email-form__sender">
                     <div class="email-form__half">
                         <label for="name">Name</label>
@@ -145,17 +147,17 @@
 
                     <div class="email-form__half">
                         <label for="email">Email</label>
-                        <input type="email" name="email" id="email">
+                        <input type="email" name="email" id="email" required>
                     </div>
                 </div>
                 
                 <div class="email-form__subject">
                     <label for="subject">Subject</label>
-                    <input type="text" name="subject" id="subject">
+                    <input type="text" name="_subject" id="subject">
                 </div>
 
-                <label for="message">Message</label>
-                <textarea name="message" id="message" rows="15"></textarea>
+                <label for="body">Message</label>
+                <textarea name="body" id="body" rows="15" required></textarea>
 
                 <input type="submit" value="Send message" id="submit-msg">
             </form>
