@@ -203,19 +203,55 @@ p {
   border-bottom: 1px dotted rgba(205, 220, 241, 0.75); }
 
 .header {
-  background-image: -moz-linear-gradient(to right bottom, rgba(9, 10, 12, 0.6), rgba(9, 10, 12, 0.2)), url(../images/laptopL.jpg);
-  background-image: -webkit-linear-gradient(to right bottom, rgba(9, 10, 12, 0.6), rgba(9, 10, 12, 0.2)), url(../images/laptopL.jpg);
-  background-image: -ms-linear-gradient(to right bottom, rgba(9, 10, 12, 0.6), rgba(9, 10, 12, 0.2)), url(../images/laptopL.jpg);
-  background-image: linear-gradient(to right bottom, rgba(9, 10, 12, 0.6), rgba(9, 10, 12, 0.2)), url(../images/laptopL.jpg);
+  background-image: -moz-linear-gradient(to right bottom, rgba(9, 10, 12, 0.6), rgba(9, 10, 12, 0.2)), url(../images/laptopS.jpg);
+  background-image: -webkit-linear-gradient(to right bottom, rgba(9, 10, 12, 0.6), rgba(9, 10, 12, 0.2)), url(../images/laptopS.jpg);
+  background-image: -ms-linear-gradient(to right bottom, rgba(9, 10, 12, 0.6), rgba(9, 10, 12, 0.2)), url(../images/laptopS.jpg);
+  background-image: linear-gradient(to right bottom, rgba(9, 10, 12, 0.6), rgba(9, 10, 12, 0.2)), url(../images/laptopS.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  max-width: 100%;
+  background-position: center;
   height: 100vh;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center; }
+  @media only screen and (min-resolution: 192dpi) and (min-width: 480px) {
+    .header {
+      background-image: -moz-linear-gradient(to right bottom, rgba(9, 10, 12, 0.6), rgba(9, 10, 12, 0.2)), url(../images/laptop960.jpg);
+      background-image: -webkit-linear-gradient(to right bottom, rgba(9, 10, 12, 0.6), rgba(9, 10, 12, 0.2)), url(../images/laptop960.jpg);
+      background-image: -ms-linear-gradient(to right bottom, rgba(9, 10, 12, 0.6), rgba(9, 10, 12, 0.2)), url(../images/laptop960.jpg);
+      background-image: linear-gradient(to right bottom, rgba(9, 10, 12, 0.6), rgba(9, 10, 12, 0.2)), url(../images/laptop960.jpg); } }
+  @media only screen and (min-width: 960px) {
+    .header {
+      background-image: -moz-linear-gradient(to right bottom, rgba(9, 10, 12, 0.6), rgba(9, 10, 12, 0.2)), url(../images/laptop960.jpg);
+      background-image: -webkit-linear-gradient(to right bottom, rgba(9, 10, 12, 0.6), rgba(9, 10, 12, 0.2)), url(../images/laptop960.jpg);
+      background-image: -ms-linear-gradient(to right bottom, rgba(9, 10, 12, 0.6), rgba(9, 10, 12, 0.2)), url(../images/laptop960.jpg);
+      background-image: linear-gradient(to right bottom, rgba(9, 10, 12, 0.6), rgba(9, 10, 12, 0.2)), url(../images/laptop960.jpg); } }
+  @media only screen and (min-resolution: 192dpi) and (min-width: 960px) {
+    .header {
+      background-image: -moz-linear-gradient(to right bottom, rgba(9, 10, 12, 0.6), rgba(9, 10, 12, 0.2)), url(../images/laptop1920.jpg);
+      background-image: -webkit-linear-gradient(to right bottom, rgba(9, 10, 12, 0.6), rgba(9, 10, 12, 0.2)), url(../images/laptop1920.jpg);
+      background-image: -ms-linear-gradient(to right bottom, rgba(9, 10, 12, 0.6), rgba(9, 10, 12, 0.2)), url(../images/laptop1920.jpg);
+      background-image: linear-gradient(to right bottom, rgba(9, 10, 12, 0.6), rgba(9, 10, 12, 0.2)), url(../images/laptop1920.jpg); } }
+  @media only screen and (min-width: 1920px) {
+    .header {
+      background-image: -moz-linear-gradient(to right bottom, rgba(9, 10, 12, 0.6), rgba(9, 10, 12, 0.2)), url(../images/laptop1920.jpg);
+      background-image: -webkit-linear-gradient(to right bottom, rgba(9, 10, 12, 0.6), rgba(9, 10, 12, 0.2)), url(../images/laptop1920.jpg);
+      background-image: -ms-linear-gradient(to right bottom, rgba(9, 10, 12, 0.6), rgba(9, 10, 12, 0.2)), url(../images/laptop1920.jpg);
+      background-image: linear-gradient(to right bottom, rgba(9, 10, 12, 0.6), rgba(9, 10, 12, 0.2)), url(../images/laptop1920.jpg); } }
+  @media only screen and (min-resolution: 192dpi) and (min-width: 1200px) {
+    .header {
+      background-image: -moz-linear-gradient(to right bottom, rgba(9, 10, 12, 0.6), rgba(9, 10, 12, 0.2)), url(../images/laptop2400.jpg);
+      background-image: -webkit-linear-gradient(to right bottom, rgba(9, 10, 12, 0.6), rgba(9, 10, 12, 0.2)), url(../images/laptop2400.jpg);
+      background-image: -ms-linear-gradient(to right bottom, rgba(9, 10, 12, 0.6), rgba(9, 10, 12, 0.2)), url(../images/laptop2400.jpg);
+      background-image: linear-gradient(to right bottom, rgba(9, 10, 12, 0.6), rgba(9, 10, 12, 0.2)), url(../images/laptop2400.jpg); } }
+  @media only screen and (min-width: 2400px) {
+    .header {
+      background-image: -moz-linear-gradient(to right bottom, rgba(9, 10, 12, 0.6), rgba(9, 10, 12, 0.2)), url(../images/laptop2400.jpg);
+      background-image: -webkit-linear-gradient(to right bottom, rgba(9, 10, 12, 0.6), rgba(9, 10, 12, 0.2)), url(../images/laptop2400.jpg);
+      background-image: -ms-linear-gradient(to right bottom, rgba(9, 10, 12, 0.6), rgba(9, 10, 12, 0.2)), url(../images/laptop2400.jpg);
+      background-image: linear-gradient(to right bottom, rgba(9, 10, 12, 0.6), rgba(9, 10, 12, 0.2)), url(../images/laptop2400.jpg); } }
   .header__logo {
     font-family: 'Fredericka the Great', cursive;
     line-height: 10rem;
