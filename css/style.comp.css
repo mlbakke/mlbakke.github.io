@@ -394,8 +394,11 @@ p {
           margin-bottom: 1rem; } }
     @media (max-width: 34.375em) {
       .contact__info {
-        font-size: 1.25rem;
+        font-size: 1.5rem;
         align-items: center; } }
+    @media (max-width: 21.875em) {
+      .contact__info {
+        font-size: 1.25rem; } }
   .contact__link {
     display: flex;
     align-items: center;
