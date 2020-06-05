@@ -5,6 +5,10 @@
 		padding: 2.5rem 0 2.5rem 10%;
 
 		display: flex;
+
+		@include respond(phone) {
+			flex-direction: column;
+		}
 	}
 
 	&__text {
@@ -17,6 +21,10 @@
 		&:not(:last-of-type):after {
 			content: "|";
 			padding: 0 1rem;
+
+			@include respond(phone) {
+				content: "";
+			}
 		}
 	}
 

@@ -1,6 +1,11 @@
 .works {
 	&__pair {
 		display: flex;
+
+		@include respond(tab-land) {
+			flex-direction: column;
+			height: 80rem;
+		}
 	}
 
 	&__work {
@@ -24,6 +29,10 @@
 			&:hover {
 				box-shadow: none;
 			}
+
+			@include respond(tab-land) {
+				flex: 1;
+			}
 		}
 		&--2 {
 			flex: 3;
@@ -32,6 +41,10 @@
 
 			&:hover {
 				box-shadow: none;
+			}
+
+			@include respond(tab-land) {
+				flex: 1;
 			}
 		}
 	}
