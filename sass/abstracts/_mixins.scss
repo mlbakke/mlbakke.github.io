@@ -1,5 +1,11 @@
 // MEDIA QUERIES
 @mixin respond($breakpoint) {
+	@if $breakpoint == phone-xs {
+		//350px
+		@media (max-width: 21.875em) {
+			@content;
+		}
+	}
 	@if $breakpoint == phone {
 		//550px
 		@media (max-width: 34.375em) {
