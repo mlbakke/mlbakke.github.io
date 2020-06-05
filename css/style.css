@@ -209,6 +209,7 @@ p {
   background-image: linear-gradient(to right bottom, rgba(9, 10, 12, 0.6), rgba(9, 10, 12, 0.2)), url(../images/laptopS.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
   height: 100vh;
   text-align: center;
   display: flex;
