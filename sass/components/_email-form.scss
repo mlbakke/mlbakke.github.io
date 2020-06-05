@@ -7,6 +7,7 @@
 	@include respond(tab-land) {
 		width: 80%;
 		margin: auto;
+		padding: 2rem 0;
 	}
 
 	&__half {
@@ -23,13 +24,15 @@
 	&__sender {
 		display: flex;
 
+		//avoid sender fields getting wider than subject/body
 		@include respond(small-desk) {
-			//avoid sender fields getting wider than subject/body
 			width: calc(100% - 2rem);
 		}
-
 		@include respond(tab-land) {
 			width: 100%;
+		}
+		@include respond(phone-xs) {
+			width: calc(100% - 2rem);
 		}
 	}
 
