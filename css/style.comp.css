@@ -360,11 +360,6 @@ p {
     padding: 3rem 0;
     margin: 0 20% 0 7%;
     font-size: inherit; }
-    .works__description--with-list {
-      padding-bottom: 0; }
-    .works__description--own-line {
-      margin: 1rem 0;
-      display: block; }
   .works__btns {
     display: flex;
     justify-content: flex-start;

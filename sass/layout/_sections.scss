@@ -83,16 +83,6 @@
 		padding: 3rem 0;
 		margin: 0 20% 0 7%;
 		font-size: inherit;
-
-		//remove padding before lists
-		&--with-list {
-			padding-bottom: 0;
-		}
-
-		&--own-line {
-			margin: 1rem 0;
-			display: block;
-		}
 	}
 
 	&__btns {
