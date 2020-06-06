@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browser Paint</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="tools">
+        <div class="tools__tool" id="brush">
+            <label for="brushes"></label>
+                <svg class="tools__icon">
+                    <use xlink:href="icons/sprite.svg#icon-round-brush"></use>
+                </svg>
+            <select class="dropdown" id="brushes">
+                <option id="0" class="dropdown-item paint" value="paint">Paint brush</option>
+                <option id="1" class="dropdown-item spray" value="spray">Spray paint</option>
+                <option id="2" class="dropdown-item connectingBrush" value="connecting">Connecting brush</option>
+                <option id="3" class="dropdown-item spikes" value="spikes">Spike brush</option>
+            </select>
+        </div>
+        <div class="tools__tool">
+            <svg class="tools__icon">
+                <use xlink:href="icons/sprite.svg#icon-spinner9"></use>
+            </svg>
+            <input id="thickness" type="range" min="1" max="100" value="1">
+        </div>
+        <div class="tools__tool" id="eraser">
+            <svg class="tools__icon">
+                <use xlink:href="icons/sprite.svg#icon-eraser"></use>
+            </svg>
+            <span class="tools__text">Eraser</span>
+        </div>
+        <div class="tools__tool" id="color">
+            <svg class="tools__icon">
+                <use xlink:href="icons/sprite.svg#icon-palette"></use>
+            </svg>
+            <input type="color" id="hex">
+        </div>
+    </div>
+
+    <canvas id="draw" width="800" height="800"></canvas>
+    
+    <script src="app.js"></script>
+</body>
+</html>

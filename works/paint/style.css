@@ -1,0 +1,52 @@
+:root {
+	--detail-color: rgb(10, 9, 8);
+	--bg-color: rgb(255, 255, 255);
+}
+
+html,
+body {
+	margin: 0;
+}
+
+#draw {
+	border: 2px dotted var(--detail-color);
+}
+
+.tools {
+	height: 30px;
+	width: 100%;
+
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.tools__tool {
+	cursor: pointer;
+}
+
+.tools__icon {
+	display: inline-block;
+	width: 1.2em;
+	height: 1.2em;
+	stroke-width: 0;
+	stroke: var(--detail-color);
+	fill: currentColor;
+}
+
+#brush {
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.dropdown {
+	border: 1px solid black;
+	margin-left: .5em;
+}
+
+.active {
+	transform: scale(1.1);
+	color: rgb(19, 19, 204);
+}
