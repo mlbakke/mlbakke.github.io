@@ -95,6 +95,12 @@
 		}
 	}
 
+	&__btns {
+		display: flex;
+		justify-content: center;
+		margin-bottom: 3rem;
+	}
+
 	&__games-list {
 		padding-bottom: 3rem;
 		margin-left: 7%;
