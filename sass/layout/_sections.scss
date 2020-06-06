@@ -97,8 +97,9 @@
 
 	&__btns {
 		display: flex;
-		justify-content: center;
+		justify-content: flex-start;
 		margin-bottom: 3rem;
+		margin-left: 7%;
 	}
 
 	&__games-list {
