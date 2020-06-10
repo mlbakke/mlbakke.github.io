@@ -83,40 +83,42 @@ p {
 
 .email-form {
   padding: 5rem 0 5rem 5rem;
-  width: 45%;
-  display: flex;
-  flex-direction: column; }
+  width: 45%; }
   @media (max-width: 75em) {
     .email-form {
       width: 80%;
       margin: auto;
       padding: 2rem 0; } }
-  .email-form__half {
+
+.fields {
+  display: flex;
+  flex-wrap: wrap; }
+  .fields__field {
+    flex-grow: 0;
+    flex-shrink: 0;
     display: flex;
     flex-direction: column;
-    width: 50%; }
-    .email-form__half:last-of-type {
-      margin-left: 2rem; }
-  .email-form__sender {
-    display: flex; }
-    @media (max-width: 85.625em) {
-      .email-form__sender {
-        width: calc(100% - 2rem); } }
-    @media (max-width: 75em) {
-      .email-form__sender {
-        width: 100%; } }
-    @media (max-width: 21.875em) {
-      .email-form__sender {
-        width: calc(100% - 2rem); } }
-  .email-form__subject {
-    display: flex;
-    flex-direction: column; }
-  .email-form label {
+    width: 100%; }
+  .fields__half {
+    width: calc(50% - 1rem); }
+    .fields__half:first-of-type {
+      margin-right: 2rem; }
+  .fields__submit {
+    margin-right: auto;
+    width: 20rem;
+    letter-spacing: 0.05rem;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-weight: 300;
+    cursor: pointer; }
+  .fields__body {
+    height: 17.5rem; }
+  .fields label {
     font-size: 2.25rem;
     font-weight: 300;
     color: #cddcf1; }
-  .email-form input,
-  .email-form textarea {
+  .fields input,
+  .fields textarea {
     background-color: #495383;
     color: #cddcf1;
     font-size: 1.75rem;
@@ -124,21 +126,9 @@ p {
     margin-top: 1rem;
     padding: 1rem;
     border: none; }
-  .email-form input:-webkit-autofill {
+  .fields input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0 100px #495383 inset;
     -webkit-text-fill-color: #cddcf1; }
-
-#body {
-  height: 17.5rem; }
-
-#submit-msg {
-  margin-right: auto;
-  width: 20rem;
-  letter-spacing: 0.05rem;
-  font-size: 1.5rem;
-  text-transform: uppercase;
-  font-weight: 300;
-  cursor: pointer; }
 
 .gallery {
   flex: 0 0 45%;
