@@ -4,13 +4,14 @@ const ctx = canvas.getContext('2d');
 // canvas widht and height
 let w = canvas.width,
 	h = canvas.height;
+const toolsHeight = document.querySelector('.tools').offsetHeight;
 
 // FIT CANVAS TO WINDOW
 function resize() {
 	// save current painting
 	let temp = ctx.getImageData(0, 0, w, h);
 	canvas.width = window.innerWidth - 4;
-	canvas.height = window.innerHeight - 38;
+	canvas.height = window.innerHeight - toolsHeight - 8;
 	(w = canvas.width), (h = canvas.height);
 	//keep current painting when resizing window
 	ctx.putImageData(temp, 0, 0);
