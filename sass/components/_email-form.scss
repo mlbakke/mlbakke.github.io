@@ -1,44 +1,32 @@
 .email-form {
 	padding: 5rem 0 5rem 5rem;
 	width: 45%;
-	display: flex;
-	flex-direction: column;
 
 	@include respond(tab-land) {
 		width: 80%;
 		margin: auto;
 		padding: 2rem 0;
 	}
+}
+
+.fields {
+	display: flex;
+	flex-wrap: wrap;
+
+	&__field {
+		flex-grow: 0;
+		flex-shrink: 0;
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+	}
 
 	&__half {
-		display: flex;
-		flex-direction: column;
-		width: 50%;
+		width: calc(50% - 1rem);
 
-		// Space between input fields
-		&:last-of-type {
-			margin-left: 2rem;
+		&:first-of-type {
+			margin-right: 2rem;
 		}
-	}
-
-	&__sender {
-		display: flex;
-
-		//avoid sender fields getting wider than subject/body
-		@include respond(small-desk) {
-			width: calc(100% - 2rem);
-		}
-		@include respond(tab-land) {
-			width: 100%;
-		}
-		@include respond(phone-xs) {
-			width: calc(100% - 2rem);
-		}
-	}
-
-	&__subject {
-		display: flex;
-		flex-direction: column;
 	}
 
 	& label {
