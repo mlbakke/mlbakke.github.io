@@ -175,13 +175,15 @@ document.addEventListener('DOMContentLoaded', () => {
 			//swap card [i] and [j]
 			[ cards[i], cards[j] ] = [ cards[j], cards[i] ];
 		}
-
+		//get width
+		const canvasWidth = grid.clientWidth;
+		//create board
 		for (let i = 0; i < cards.length; i++) {
 			const card = document.createElement('img');
 			card.setAttribute('src', 'img/memory/blank.jpg');
 			card.setAttribute('data-id', i);
 			card.setAttribute('class', 'card');
-			card.width = '100';
+			card.width = canvasWidth / 6;
 			card.addEventListener('click', flipCard);
 			grid.appendChild(card);
 		}
@@ -192,24 +194,47 @@ document.addEventListener('DOMContentLoaded', () => {
 		const twoCards = document.querySelectorAll('img');
 		const optionOneId = cardsChosenId[0];
 		const optionTwoId = cardsChosenId[1];
+		const match = document.querySelector('.match');
 
+		//Check for match
 		if (cardsChosen[0] === cardsChosen[1]) {
-			alert('You found a match!');
+			match.style.display = 'inline-block';
+			match.innerHTML = 'You got a match!';
+			//push matched cards
+			cardsMatched.push(cardsChosen);
+			//update score
+			resultDisplay.textContent = cardsMatched.length;
+			//remove cards from board
+			match.addEventListener('click', removeCards);
+		} else {
+			match.style.display = 'inline-block';
+			match.innerHTML = 'No match!';
+			//turn cards back around after no-match
+			match.addEventListener('click', resetCards);
+		}
+
+		//remove cards after match
+		function removeCards() {
+			match.style.display = 'none';
+			match.innerHTML = '';
 			twoCards[optionOneId].setAttribute('src', 'img/memory/white.jpg');
 			twoCards[optionTwoId].setAttribute('src', 'img/memory/white.jpg');
-			cardsMatched.push(cardsChosen);
-		} else {
+			cardsChosen = [];
+			cardsChosenId = [];
+		}
+		//turn around card if no match
+		function resetCards() {
+			match.style.display = 'none';
+			match.innerHTML = '';
 			twoCards[optionOneId].setAttribute('src', 'img/memory/blank.jpg');
 			twoCards[optionTwoId].setAttribute('src', 'img/memory/blank.jpg');
-			alert('Sorry, no match!');
+			cardsChosen = [];
+			cardsChosenId = [];
 		}
-		cardsChosen = [];
-		cardsChosenId = [];
-		resultDisplay.textContent = cardsMatched.length;
-
+		//Check for victory
 		if (cardsMatched.length === cards.length / 2) {
 			removeBoard();
-			resultDisplay.textContent = 'Congatulations, you won!';
+			match.innerHTML = "You're a winner!!";
 		}
 	}
 
