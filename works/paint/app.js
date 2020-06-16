@@ -170,6 +170,22 @@ function draw(e) {
 }
 
 // Draw while mouse is clicked and moving
+// TOUCH DEVICES
+canvas.addEventListener('touchstart', (e) => {
+	isDrawing = true;
+	[ lastX, lastY ] = [ e.offsetX, e.offsetY ];
+
+	if (currentBrush === 'connecting') {
+		points.push({ x: e.offsetX, y: e.offsetY });
+	}
+});
+canvas.addEventListener('touchmove', draw);
+// Don't draw when mouse isn't clicked
+canvas.addEventListener('touchend', () => (isDrawing = false));
+// Reset points for connecting brush when no longer clicked
+canvas.addEventListener('touchend', () => (points.length = 0));
+
+// DESKTOP / LAPTOP
 canvas.addEventListener('mousedown', (e) => {
 	isDrawing = true;
 	[ lastX, lastY ] = [ e.offsetX, e.offsetY ];
@@ -179,9 +195,6 @@ canvas.addEventListener('mousedown', (e) => {
 	}
 });
 canvas.addEventListener('mousemove', draw);
-// Don't draw when mouse isn't clicked
 canvas.addEventListener('mouseup', () => (isDrawing = false));
 canvas.addEventListener('mouseout', () => (isDrawing = false));
-
-//Reset points for connecting brush when no longer clicked
 canvas.addEventListener('mouseup', () => (points.length = 0));
