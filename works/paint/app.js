@@ -90,8 +90,8 @@ function changeBrush(e) {
 // DRAWING
 // drawing variables
 let isDrawing = false;
-let lastX = 0;
-let lastY = 0;
+let position = { x: 0, y: 0 };
+let lastPos = position;
 
 // density for spray
 let density = 50;
@@ -99,6 +99,13 @@ let density = 50;
 let points = [];
 
 // drawing functionality
+function getPosition(canvasDom, mouseEvent) {
+	return {
+		x : mouseEvent.offsetX,
+		y : mouseEvent.offsetY
+	};
+}
+
 function draw(e) {
 	if (!isDrawing) return; //don't run when not moused
 	ctx.lineWidth = thickness.value;
@@ -109,13 +116,13 @@ function draw(e) {
 		ctx.strokeStyle = colorPicker.value;
 		ctx.beginPath();
 		//start from -> go to
-		ctx.moveTo(lastX, lastY);
+		ctx.moveTo(lastPos.x, lastPos.y);
 		ctx.lineTo(e.offsetX, e.offsetY);
 
 		ctx.stroke();
-		//update lastX and lastY
-		lastX = e.offsetX;
-		lastY = e.offsetY;
+		//update lastpos
+		lastPos.x = e.offsetX;
+		lastPos.y = e.offsetY;
 	} else if (currentBrush === 'spray') {
 		for (let i = density; i--; ) {
 			ctx.fillStyle = colorPicker.value;
@@ -160,31 +167,29 @@ function draw(e) {
 	} else if (currentBrush === 'spikes') {
 		ctx.strokeStyle = colorPicker.value;
 		ctx.beginPath();
-		ctx.moveTo(lastX, lastY);
-		ctx.lineTo(e.offsetX * getRandomFloat(0.9, 1.1), e.offsetY * getRandomFloat(0.9, 1.1));
+		ctx.moveTo(lastPos.x, lastPos.y);
+		ctx.lineTo(position.x * getRandomFloat(0.9, 1.1), position.y * getRandomFloat(0.9, 1.1));
 		ctx.stroke();
-		//update lastX and lastY
-		lastX = e.offsetX;
-		lastY = e.offsetY;
+
+		//update lastpos
+		lastPos = position;
 	}
 }
 
-// Draw while mouse is clicked and moving
 // TOUCH DEVICES
 canvas.addEventListener('touchstart', (e) => {
-	isDrawing = true;
+	mousePos = getTouchPos(canvas, e);
 	const mouseEvent = new MouseEvent('mousedown', {
-		lastX : e.touches[0].offsetX,
-		lastY : e.touches[0].offsetY
+		clientX : e.touches[0].clientX,
+		clientY : e.touches[0].clientY
 	});
-
 	canvas.dispatchEvent(mouseEvent);
 });
 
 canvas.addEventListener('touchmove', (e) => {
 	const mouseEvent = new MouseEvent('mousemove', {
-		lastX : e.touches[0].offsetX,
-		lastY : e.touches[0].offsetY
+		clientX : e.touches[0].clientX,
+		clientY : e.touches[0].clientY
 	});
 	canvas.dispatchEvent(mouseEvent);
 });
@@ -193,6 +198,14 @@ canvas.addEventListener('touchend', (e) => {
 	const mouseEvent = new MouseEvent('mouseup', {});
 	canvas.dispatchEvent(mouseEvent);
 });
+
+// Get touchposition relative to canvas
+function getTouchPos(canvasDom, touchEvent) {
+	return {
+		x : touchEvent.touches[0].offsetX,
+		y : touchEvent.touches[0].offsetY
+	};
+}
 
 // Prevent scrolling on touchevents
 document.body.addEventListener(
@@ -226,13 +239,16 @@ document.body.addEventListener(
 // DESKTOP / LAPTOP
 canvas.addEventListener('mousedown', (e) => {
 	isDrawing = true;
-	[ lastX, lastY ] = [ e.offsetX, e.offsetY ];
+	lastPos = getPosition(canvas, e);
 
 	if (currentBrush === 'connecting') {
 		points.push({ x: e.offsetX, y: e.offsetY });
 	}
 });
 canvas.addEventListener('mousemove', draw);
+canvas.addEventListener('mousemove', (e) => {
+	position = getPosition(canvas, e);
+});
 canvas.addEventListener('mouseup', () => (isDrawing = false));
 canvas.addEventListener('mouseout', () => (isDrawing = false));
 canvas.addEventListener('mouseup', () => (points.length = 0));
