@@ -99,14 +99,7 @@ let density = 50;
 let points = [];
 
 // drawing functionality
-function getPosition(canvasDom, mouseEvent) {
-	return {
-		x : mouseEvent.offsetX,
-		y : mouseEvent.offsetY
-	};
-}
-
-function draw(e) {
+function draw() {
 	if (!isDrawing) return; //don't run when not moused
 	ctx.lineWidth = thickness.value;
 	ctx.lineJoin = join;
@@ -117,25 +110,24 @@ function draw(e) {
 		ctx.beginPath();
 		//start from -> go to
 		ctx.moveTo(lastPos.x, lastPos.y);
-		ctx.lineTo(e.offsetX, e.offsetY);
+		ctx.lineTo(position.x, position.y);
 
 		ctx.stroke();
 		//update lastpos
-		lastPos.x = e.offsetX;
-		lastPos.y = e.offsetY;
+		lastPos = position;
 	} else if (currentBrush === 'spray') {
 		for (let i = density; i--; ) {
 			ctx.fillStyle = colorPicker.value;
 			let angle = getRandomFloat(0, Math.PI * 2);
 			let radius = getRandomFloat(0, thickness.value);
 			// fill 1*1 dots within a round radius of the pointer
-			ctx.fillRect(e.offsetX + radius * Math.cos(angle), e.offsetY + radius * Math.sin(angle), 1, 1);
+			ctx.fillRect(position.x + radius * Math.cos(angle), position.y + radius * Math.sin(angle), 1, 1);
 		}
 	} else if (currentBrush === 'connecting') {
 		ctx.strokeStyle = colorPicker.value;
 		ctx.lineWidth = 1;
 		// add current point to points array to keep track of our lines
-		points.push({ x: e.offsetX, y: e.offsetY });
+		points.push({ x: position.x, y: position.y });
 		ctx.beginPath();
 		ctx.moveTo(points[points.length - 2].x, points[points.length - 2].y);
 		ctx.lineTo(points[points.length - 1].x, points[points.length - 1].y);
@@ -201,9 +193,10 @@ canvas.addEventListener('touchend', (e) => {
 
 // Get touchposition relative to canvas
 function getTouchPos(canvasDom, touchEvent) {
+	const rect = canvasDom.getBoundingClientRect();
 	return {
-		x : touchEvent.touches[0].offsetX,
-		y : touchEvent.touches[0].offsetY
+		x : touchEvent.touches[0].clientX - rect.left,
+		y : touchEvent.touches[0].clientY - rect.top
 	};
 }
 
@@ -245,10 +238,40 @@ canvas.addEventListener('mousedown', (e) => {
 		points.push({ x: e.offsetX, y: e.offsetY });
 	}
 });
-canvas.addEventListener('mousemove', draw);
 canvas.addEventListener('mousemove', (e) => {
 	position = getPosition(canvas, e);
 });
 canvas.addEventListener('mouseup', () => (isDrawing = false));
 canvas.addEventListener('mouseout', () => (isDrawing = false));
 canvas.addEventListener('mouseup', () => (points.length = 0));
+
+// Get position
+function getPosition(canvasDom, mouseEvent) {
+	const rect = canvasDom.getBoundingClientRect();
+	return {
+		x : mouseEvent.clientX - rect.left,
+		y : mouseEvent.clientY - rect.top
+	};
+}
+
+// DRAW LOOP
+
+//Intervall for drawing
+window.requestAnimFrame = (function(callback) {
+	return (
+		window.requestAnimationFrame ||
+		window.webkitRequestAnimationFrame ||
+		window.mozRequestAnimationFrame ||
+		window.oRequestAnimationFrame ||
+		window.msRequestAnimaitonFrame ||
+		function(callback) {
+			window.setTimeout(callback, 1000 / 60);
+		}
+	);
+})();
+
+// Allow animation, draw
+(function drawLoop() {
+	requestAnimFrame(drawLoop);
+	draw();
+})();
