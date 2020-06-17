@@ -173,17 +173,55 @@ function draw(e) {
 // TOUCH DEVICES
 canvas.addEventListener('touchstart', (e) => {
 	isDrawing = true;
-	[ lastX, lastY ] = [ e.offsetX, e.offsetY ];
+	const mouseEvent = new MouseEvent('mousedown', {
+		lastX : e.touches[0].offsetX,
+		lastY : e.touches[0].offsetY
+	});
 
-	if (currentBrush === 'connecting') {
-		points.push({ x: e.offsetX, y: e.offsetY });
-	}
+	canvas.dispatchEvent(mouseEvent);
 });
-canvas.addEventListener('touchmove', draw);
+
+canvas.addEventListener('touchmove', (e) => {
+	const mouseEvent = new MouseEvent('mousemove', {
+		lastX : e.touches[0].offsetX,
+		lastY : e.touches[0].offsetY
+	});
+	canvas.dispatchEvent(mouseEvent);
+});
 // Don't draw when mouse isn't clicked
-canvas.addEventListener('touchend', () => (isDrawing = false));
-// Reset points for connecting brush when no longer clicked
-canvas.addEventListener('touchend', () => (points.length = 0));
+canvas.addEventListener('touchend', (e) => {
+	const mouseEvent = new MouseEvent('mouseup', {});
+	canvas.dispatchEvent(mouseEvent);
+});
+
+// Prevent scrolling on touchevents
+document.body.addEventListener(
+	'touchstart',
+	function(e) {
+		if (e.target == canvas) {
+			e.preventDefault();
+		}
+	},
+	false
+);
+document.body.addEventListener(
+	'touchend',
+	function(e) {
+		if (e.target == canvas) {
+			e.preventDefault();
+		}
+	},
+	false
+);
+document.body.addEventListener(
+	'touchmove',
+	function(e) {
+		if (e.target == canvas) {
+			e.preventDefault();
+		}
+	},
+	false
+);
 
 // DESKTOP / LAPTOP
 canvas.addEventListener('mousedown', (e) => {
