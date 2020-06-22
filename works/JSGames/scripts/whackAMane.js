@@ -2,9 +2,13 @@ const score = document.querySelector('#molescore');
 const holes = document.querySelectorAll('.hole');
 const moles = document.querySelectorAll('.mole');
 const start = document.querySelector('#newGame');
+const scoreList = document.querySelector('.topscores__list');
 let currScore = 0;
 let finished = false;
 let lastHole;
+let highscores = JSON.parse(localStorage.getItem('highscores')) || [];
+//Start with current topscores visible
+fillTopscore();
 
 start.addEventListener('click', newGame);
 
@@ -47,7 +51,17 @@ function appear() {
 	//mole disappears after time
 	setTimeout(() => {
 		hole.classList.remove('appear');
-		if (!finished) appear();
+		if (!finished) {
+			appear();
+		} else {
+			//push score to highscores, sort then save
+			highscores.push(currScore);
+			highscores.sort((a, b) => b - a);
+			if (highscores.length > 10) highscores.pop();
+			localStorage.setItem('highscores', JSON.stringify(highscores));
+			//Rewrite topscores
+			fillTopscore();
+		}
 	}, time);
 }
 
@@ -59,6 +73,19 @@ function hit(e) {
 	score.textContent = currScore;
 	//remove mané
 	this.parentElement.classList.remove('appear');
+}
+
+function fillTopscore() {
+	//Remove scores from topscore list
+	scoreList.innerHTML = '';
+	//Write scores back to topscore list
+	highscores.forEach((highscore) => {
+		const node = document.createElement('li');
+		node.setAttribute('class', 'topscores__score');
+		const textnode = document.createTextNode(`${highscore}`);
+		node.appendChild(textnode);
+		scoreList.appendChild(node);
+	});
 }
 
 moles.forEach((mole) => mole.addEventListener('click', hit));
