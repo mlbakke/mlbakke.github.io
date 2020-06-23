@@ -57,7 +57,7 @@ function appear() {
 			//push score to highscores, sort then save
 			highscores.push(currScore);
 			highscores.sort((a, b) => b - a);
-			if (highscores.length > 10) highscores.pop();
+			if (highscores.length > 20) highscores.pop();
 			localStorage.setItem('highscores', JSON.stringify(highscores));
 			//Rewrite topscores
 			fillTopscore();
