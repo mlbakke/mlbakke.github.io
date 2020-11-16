@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoinPrice | Cryptocurrency Prices & Market Cap</title>
+
+    <!--Stylesheets-->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!--Fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        <div class="market-overview">
+            <div class="market-overview__element">Total Market Cap: <span id="global-cap"></span></div>
+            <div class="market-overview__element">24h Market change (in USD): <span id="global-change"></span></div>
+            <div class="market-overview__element">24h volume: <span id="global-volume"></span></div>
+            <div class="market-overview__element">Bitcoin dominance: <span id="btc-dominance"></span></div>
+        </div>
+        <div class="main-header">
+            <h1 class="heading__primary">CoinPrice</h1>
+        </div>
+    </header>
+    <main>
+        <h2 class="heading__secondary">Today's Cryptocurrency prices</h2>
+        <section class="coins">
+            <div class="coin-navigation">
+                <div class="coin-navigation__left">
+                    <div class="coin-navigation__element">All</div>
+                    <div class="coin-navigation__element">Filters</div>
+                
+                    <div class="coin-navigation__element dropdown">
+                        <button class="btn btn--nav">Currency</button>
+                        <div class="dropdown-content">
+                            <div class="currency-choice" data-symbol="$" data-code="usd">USD</div>
+                            <div class="currency-choice" data-symbol="€" data-code="eur">Euro</div>
+                            <div class="currency-choice" data-symbol="£" data-code="gbp">GBP</div>
+                            <div class="currency-choice" data-symbol="฿" data-code="btc">BTC</div>
+                            <div class="currency-choice" data-symbol="Ξ" data-code="eth">ETH</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="coin-navigation__right">
+                    <button class="coin-navigation__element btn btn--nav" id="prev-page">&#8592; Previous page</button>
+                    <button class="coin-navigation__element btn btn--nav" id="next-page">Next page &#8594;</button>
+                </div>
+            </div>
+            <table class="coin-table">
+                <thead class="table-head">
+                    <tr class="table-headers">
+                        <th class="table-headers--header" data-key=0>Rank</th>
+                        <th class="table-headers--header" data-key=1>Name</th>
+                        <th class="table-headers--header" data-key=2>Ticker</th>
+                        <th class="table-headers--header" data-key=3>Market Cap</th>
+                        <th class="table-headers--header" data-key=4>Price</th>
+                        <th class="table-headers--header" data-key=5>Volume</th>
+                        <th class="table-headers--header" data-key=6>Circulating Supply</th>
+                        <th class="table-headers--header" data-key=7>Change (24h)</th>
+                    </tr>
+                </thead>
+                <tbody class="table-body">
+                </tbody>
+            </table>
+            
+            <button class="btn btn--load">Load more</button>
+        </section>
+
+        <section class="coin-stats closed">
+            <div class="coin-stats__heading">
+            </div>
+
+            <div class="coin-stats__info">
+                <div class="coin-stats__info--links"></div>
+                <div class="coin-stats__info--price-change"></div>
+                <div class="coin-stats__info--div">
+                    <div class="coin-stats__info--div-left"></div>
+                    <div class="coin-stats__info--div-right"></div>
+                </div>
+            </div>
+
+            <div class="coin-stats__description"></div>
+            <div class="coin-stats__chart-wrapper">
+                <div class="coin-stats__chart-filters">
+                    <button class="btn btn--chart-filter" data-key=1>24h</button>
+                    <button class="btn btn--chart-filter" data-key=7>7d</button>
+                    <button class="btn btn--chart-filter active" data-key=30>30d</button>
+                    <button class="btn btn--chart-filter" data-key=90>90d</button>
+                    <button class="btn btn--chart-filter" data-key=365>1y</button>
+                    <button class="btn btn--chart-filter" data-key="max">Max</button>
+                </div>
+                <canvas class="coin_stats__chart"></canvas>
+            </div>
+
+            <button class="btn x-button">
+                <div class="x-button__leftright"></div>
+                <div class="x-button__rightleft"></div>
+                <label class="x-button__close">close</label>
+            </button>
+        </section>
+    </main>
+    <footer></footer>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="scripts/helpers.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/sorting.js"></script>
+    <script src="scripts/global.js"></script>
+    <script src="scripts/single-coin.js"></script>
+    <script src="scripts/coin-chart.js"></script>
+</body>
+</html>
