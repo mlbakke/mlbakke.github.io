@@ -302,6 +302,9 @@ p {
       .works__pair {
         flex-direction: column;
         height: 80rem; } }
+    @media (max-width: 75em) {
+      .works__pair--single {
+        height: 40rem; } }
   .works__work {
     position: relative;
     color: #090a0c;
@@ -318,8 +321,6 @@ p {
       flex: 3;
       background-image: url("../images/browserPaint.png");
       box-shadow: inset 0 0 0 100rem rgba(103, 202, 255, 0.7); }
-      .works__work--1:hover {
-        box-shadow: none; }
       @media (max-width: 75em) {
         .works__work--1 {
           flex: 1; } }
@@ -327,11 +328,18 @@ p {
       flex: 4;
       background-image: url("../images/JSGames.png");
       box-shadow: inset 0 0 0 100rem rgba(247, 185, 114, 0.7); }
-      .works__work--2:hover {
-        box-shadow: none; }
       @media (max-width: 75em) {
         .works__work--2 {
           flex: 1; } }
+    .works__work--single {
+      width: 100%;
+      background-image: url("../images/coinprice.png");
+      box-shadow: inset 0 0 0 100rem rgba(44, 48, 46, 0.25); }
+      @media (max-width: 75em) {
+        .works__work--single {
+          flex: 1; } }
+    .works__work:hover {
+      box-shadow: none; }
   .works__title {
     width: 70%;
     margin-top: 20rem;
@@ -352,7 +360,8 @@ p {
     position: absolute;
     bottom: 0;
     font-size: 2rem;
-    font-weight: 300; }
+    font-weight: 300;
+    width: 100%; }
   .works__description {
     padding: 3rem 0;
     margin: 0 20% 0 7%;
