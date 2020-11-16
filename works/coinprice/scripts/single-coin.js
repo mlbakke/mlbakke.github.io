@@ -121,5 +121,9 @@ function printSingleCoin(coin) {
 // CLOSE 'POPUP'
 const xBtn = document.querySelector('.x-button');
 xBtn.addEventListener('click', () => {
+    //Remove active chart-filter button
+    document.querySelector('.active').classList.remove('active');
+    // Close window
     document.querySelector('.coin-stats').classList.add('closed');
+
 })

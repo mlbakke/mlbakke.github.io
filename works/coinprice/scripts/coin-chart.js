@@ -70,6 +70,11 @@ async function getCoinChart(coinId, name, days = 30) {
 			throw err;
 		});
 		
+	// If default filter is set, mark btn as active
+	if (days === 30) {
+		document.querySelector('#default-filter').classList.add('active');
+	}
+	
 	//update current coin trackers
 	currentCoin = name;
 	currentId = coinId;
