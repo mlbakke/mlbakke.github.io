@@ -5,27 +5,31 @@ const perPage = '50';
 let page = 1;
 let currentCoin, currentId;
 
-//GET COINS FROM API
-async function getCoins() {
+// Add coins to table
+async function addCoinsToTable() {
 	//fetch coinlist
 	const coinList = await axios
-		.get(
-			`https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&order=market_cap_rank_desc&per_page=${perPage}&page=${page}&sparkline=false&price_change_percentage=24h`
-		)
-		.catch((err) => {
-			if (err.response.status === 404) {
-				return null;
-			}
-			throw err;
-		});
+	.get(`https://api.coingecko.com/api/v3/coins/markets`, {
+		params : {
+			vs_currency : currency,
+			order : 'market_cap_rank_desc',
+			per_page : perPage,
+			page : page,
+			sparkline : 'false',
+			price_change_percentage : '24h'
+		}
+	})
+	.catch((err) => {
+		if (err.response.status === 404) {
+			return null;
+		}
+		throw err;
+	});
 	//print data
-	printCoins(coinList.data);
-}
+	const coins = coinList.data;
 
-//PRINT COINS TO TABLE
-function printCoins(coins) {
+	// Create table row for each coin on page
 	for (let coin of coins) {
-		// Create table row for coin and table data for each data point
 		const row = document.createElement('tr');
 		const rank = document.createElement('td');
 		const rankT = document.createTextNode(coin.market_cap_rank);
@@ -62,7 +66,7 @@ function printCoins(coins) {
 			getCoinChart(name.dataset.id, coin.name);
 		})
 
-		//append textNode to td
+		//append textNodes to td
 		rank.appendChild(rankT);
 		name.appendChild(nameT);
 		tick.appendChild(tickT);
@@ -71,7 +75,7 @@ function printCoins(coins) {
 		vol.appendChild(volT);
 		supply.appendChild(supplyT);
 		change.appendChild(changeT);
-
+		// change color of price change based on movement
 		isPositive(change);
 		//append td's to tr
 		row.appendChild(rank);
@@ -86,8 +90,10 @@ function printCoins(coins) {
 		table.appendChild(row);
 	}
 }
+//Show top 50 table on load
+addCoinsToTable();
 
-// LOAD COINS
+// LOAD MORE COINS TO TABLE
 const loadBtn = document.querySelector('.btn--load');
 loadBtn.addEventListener('click', () => {
 	page++;
@@ -105,13 +111,34 @@ prevPage.addEventListener('click', () => {
 	}
 	page--;
 	table.innerHTML = '';
-	getCoins();
+	addCoinsToTable();
 });
 nextPage.addEventListener('click', () => {
 	page++;
 	table.innerHTML = '';
-	getCoins();
+	addCoinsToTable();
 });
 
-//LOAD INITIAL TABLE (TOP 50)
-getCoins();
+// GET GLOBAL MARKET STATISTICS
+async function getGlobal() {
+	//fetch global data
+	const global = await axios
+		.get(`https://api.coingecko.com/api/v3/global`)
+		.catch((err) => {
+			if (err.response.status === 404) {
+				return null;
+			}
+			throw err;
+		});
+	//print data
+    printGlobal(global.data.data);
+}
+
+function printGlobal(data) {
+    document.querySelector('#global-cap').innerHTML = `$${separateThousands(toDecimals(data.total_market_cap.usd, 0))}`;
+    document.querySelector('#global-change').innerHTML = `${toDecimals(data.market_cap_change_percentage_24h_usd, 2)}%`;
+    document.querySelector('#global-volume').innerHTML = `$${separateThousands(toDecimals(data.total_volume.usd, 0))}`;
+    document.querySelector('#btc-dominance').innerHTML = `${toDecimals(data.market_cap_percentage.btc, 2)}%`;
+}
+//Show global stats on load
+getGlobal();

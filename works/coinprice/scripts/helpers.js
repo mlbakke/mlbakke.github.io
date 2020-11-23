@@ -30,6 +30,10 @@ function separateThousands(x) {
 	return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',');
 }
 
+function addLeadingZero(num) {
+	return (num < 10 ? '0' + num : num);
+}
+
 // CHANGE CURRENCY
 const currencyChoices = document.querySelectorAll('.currency-choice');
 currencyChoices.forEach((currencyChoice) => {
