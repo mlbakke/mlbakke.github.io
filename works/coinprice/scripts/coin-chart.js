@@ -134,6 +134,10 @@ async function getCoinChart(coinId, name, days = 30) {
 	if (days === 30) {
 		document.querySelector('#default-filter').classList.add('active');
 	}
+<<<<<<< HEAD
+=======
+	
+>>>>>>> b99e651ad460ee2ac2874be8127b6e3b2615ad2f
 	//update current coin trackers
 	currentCoin = name;
 	currentId = coinId;
