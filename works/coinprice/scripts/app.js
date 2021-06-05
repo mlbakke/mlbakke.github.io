@@ -34,16 +34,13 @@ async function addCoinsToTable() {
 		const rank = document.createElement('td');
 		const rankT = document.createTextNode(coin.market_cap_rank);
 		const name = document.createElement('td');
-		const nameT = document.createTextNode(coin.name);
-		const tick = document.createElement('td');
-		const tickT = document.createTextNode(coin.symbol.toUpperCase());
-		const cap = document.createElement('td');
-		const capT = document.createTextNode(
-			`${currencySign}${separateThousands(coin.market_cap)}`
-		);
 		const price = document.createElement('td');
 		const priceT = document.createTextNode(
 			`${currencySign}${separateThousands(coin.current_price)}`
+		);
+		const cap = document.createElement('td');
+		const capT = document.createTextNode(
+			`${currencySign}${separateThousands(coin.market_cap)}`
 		);
 		const vol = document.createElement('td');
 		const volT = document.createTextNode(
@@ -68,10 +65,9 @@ async function addCoinsToTable() {
 
 		//append textNodes to td
 		rank.appendChild(rankT);
-		name.appendChild(nameT);
-		tick.appendChild(tickT);
-		cap.appendChild(capT);
+		name.innerHTML = `${coin.name} <span class="coin-id__ticker">${coin.symbol.toUpperCase()}</span>`;
 		price.appendChild(priceT);
+		cap.appendChild(capT);
 		vol.appendChild(volT);
 		supply.appendChild(supplyT);
 		change.appendChild(changeT);
@@ -80,9 +76,8 @@ async function addCoinsToTable() {
 		//append td's to tr
 		row.appendChild(rank);
 		row.appendChild(name);
-		row.appendChild(tick);
-		row.appendChild(cap);
 		row.appendChild(price);
+		row.appendChild(cap);
 		row.appendChild(vol);
 		row.appendChild(supply);
 		row.appendChild(change);
@@ -97,7 +92,7 @@ addCoinsToTable();
 const loadBtn = document.querySelector('.btn--load');
 loadBtn.addEventListener('click', () => {
 	page++;
-	getCoins();
+	addCoinsToTable();
 	//Sort coins after rank
 	sortTable(0, "reverse");
 });
@@ -142,3 +137,8 @@ function printGlobal(data) {
 }
 //Show global stats on load
 getGlobal();
+
+// RELOAD PAGE ON H1 CLICK
+const primeHeading = document.querySelector('.heading__primary');
+
+primeHeading.addEventListener('click', () => location.reload());

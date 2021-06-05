@@ -43,8 +43,8 @@ function sortTable(n, dir = "default") {
 			x = rows[i].getElementsByTagName('TD')[n];
 			y = rows[i + 1].getElementsByTagName('TD')[n];
 
-			// If rows are name or ticker:
-			if (n == 1 || n == 2) {
+			// If row is name:
+			if (n == 1) {
 				// Check if the rows should switch place
 				if (dir === 'reverse') {
 					if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
@@ -112,7 +112,7 @@ function sortTable(n, dir = "default") {
 	} else {
 		let span = document.createElement('span');
 		span.classList.add('sorting');
-		if (n == 1 || n == 2) {
+		if (n == 1) {
 			// If sorting is by name
 			span.innerHTML = '&#9660';
 		} else {
